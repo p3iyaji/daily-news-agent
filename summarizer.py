@@ -10,7 +10,7 @@ load_dotenv()
 
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 client = OpenAI(
-    api_key=os.getenv("GLM_API_KEY")
+    api_key=os.getenv("GLM_API_KEY"),
     base_url="https://open.bigmodel.cn/api/paas/v4/")
 
 
