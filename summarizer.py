@@ -58,7 +58,7 @@ def summarize_articles(articles):
         messages=[
             {
                 "role": "user",
-                "content": prompt
+                "content": SUMMARY_PROMPT
             }
         ]
     )
