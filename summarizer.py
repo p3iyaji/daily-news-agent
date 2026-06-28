@@ -40,16 +40,28 @@ def summarize_articles(articles):
                 --------------------------------
             """
 
-    response = client.responses.create(
-        # model="gpt-5.4-mini",
-        model="GLM-4.7-Flash",
-        input=f"""
-            {SUMMARY_PROMPT}
+#  For OpenAI API
+    # response = client.responses.create(
+    #     # model="gpt-5.4-mini",
+    #     model="GLM-4.7-Flash",
+    #     input=f"""
+    #         {SUMMARY_PROMPT}
 
-            Summarize ALL of these articles.
+    #         Summarize ALL of these articles.
 
-            {article_text}
-        """
+    #         {article_text}
+    #     """
+    # )
+
+    response = client.chat.completions.create(
+        model="glm-4.7-flash",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
 
-    return json.loads(response.output_text)
+    # return json.loads(response.output_text)
+    return response.choices[0].message.content
