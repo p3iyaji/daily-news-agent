@@ -2,10 +2,7 @@ name: Daily News Agent
 
 on:
   schedule:
-    # Runs every day at 10:00 UTC
     - cron: '0 10 * * *'
-
-  # Allows you to run it manually from the GitHub UI
   workflow_dispatch:
 
 jobs:
@@ -29,6 +26,8 @@ jobs:
       - name: Run News Agent
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Add any other secrets your app needs here
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: |
           python main.py
