@@ -8,7 +8,10 @@ from prompts import SUMMARY_PROMPT
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("GLM_API_KEY")
+    base_url="https://open.bigmodel.cn/api/paas/v4/")
 
 
 def summarize_articles(articles):
@@ -38,7 +41,8 @@ def summarize_articles(articles):
             """
 
     response = client.responses.create(
-        model="gpt-5.4-mini",
+        # model="gpt-5.4-mini",
+        model="GLM-4.7-Flash",
         input=f"""
             {SUMMARY_PROMPT}
 
