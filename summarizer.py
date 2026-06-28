@@ -64,4 +64,5 @@ def summarize_articles(articles):
     )
 
     # return json.loads(response.output_text)
-    return response.choices[0].message.content
+    #  return response.choices[0].message.content
+    return json.loads(response.choices[0].message.content)
