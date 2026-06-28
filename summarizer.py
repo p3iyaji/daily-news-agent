@@ -42,6 +42,7 @@ Analyze ALL articles and return ONLY valid JSON in this format:
   "articles": [
     {{
       "title": "",
+      "published": "",
       "summary": "",
       "importance": 1,
       "why_it_matters": "",
