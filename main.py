@@ -20,11 +20,11 @@ log("PARSE", f"Got {len(unique_articles)} entries")
 
 
 summaries = summarize_articles(unique_articles)
-log("AI", f"Summarizing: {summaries}")
 
-log("AI DONE", f"Done summarizing {len(summaries)} articles.")
+log("AI", f"Summarized {len(summaries['articles'])} articles")
 
 html = build_email(summaries["articles"])
+
 log("EMAIL", "Sending digest...")
 
 send_email(html)
