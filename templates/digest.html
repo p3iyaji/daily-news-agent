@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .article {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Iyaji's  Current AI News Digest</h1>
+
+  {% for article in articles %}
+
+  <div class="article">
+
+    <h2>{{ article.title }}</h2>
+
+    <p><strong>Published on:</strong> {{ article.published }}</p>
+
+    <p><strong>Summary</strong></p>
+
+    <p>{{ article.summary }}</p>
+
+    <p><strong>Why it matters</strong></p>
+
+    <p>{{ article.why_it_matters }}</p>
+
+    <ul>
+
+      {% for takeaway in article.key_takeaways %}
+      <li>{{ takeaway }}</li>
+      {% endfor %}
+
+    </ul>
+
+    <p>
+      <a href="{{ article.link }}">Read Article</a>
+    </p>
+
+  </div>
+
+  {% endfor %}
+
+</body>
+
+</html>
